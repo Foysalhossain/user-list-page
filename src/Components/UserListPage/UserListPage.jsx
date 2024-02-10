@@ -36,7 +36,7 @@ const UserListPage = () => {
     return (
         <div className="user-list p-20 mx-auto">
             <h1 className="text-center text-5xl font-bold">User List</h1>
-            <div className="text-center">
+            <div className="text-center sm:py-4">
                 {/* search bar */}
                 <input
                     type="text"
@@ -55,7 +55,7 @@ const UserListPage = () => {
                     <option value="company">Sort By Company</option>
                 </select>
             </div>
-            <div className="user-cards grid grid-cols-4 justify-items-center gap-6">
+            <div className="user-cards grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-6">
                 {sortedUsers.map(user => <UserCard key={user.id} user={user}></UserCard>)}
             </div>
         </div>
