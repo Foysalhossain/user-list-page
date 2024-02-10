@@ -6,12 +6,18 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import UserListPage from './Components/UserListPage/UserListPage.jsx';
+import UserDetails from './Components/UserDetails/UserDetails.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <UserListPage />
   },
+  {
+    path: "/userDetails/:id",
+    element: <UserDetails />,
+    loader: ({params}) => fetch(`https://dummyjson.com/users/${params.id}`)
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
