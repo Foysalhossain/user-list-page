@@ -12,7 +12,7 @@ const UserListPage = () => {
             .then(data => setUsers(data.users))
     }, []);
 
-    // search bar name, email and company
+    // search bar name
     const filteredUsers = users.filter(item => {
         return (
             search.toLowerCase() === '' ||
@@ -20,12 +20,15 @@ const UserListPage = () => {
         )
     });
 
+    // sort by name, email, and company name
     const sortedUsers = [...filteredUsers].sort((a, b) => {
         if (sortBy === 'name') {
             return a.firstName.localeCompare(b.firstName);
-        } else if (sortBy === 'email') {
+        }
+        else if (sortBy === 'email') {
             return a.email.localeCompare(b.email);
-        } else if (sortBy === 'company') {
+        }
+        else if (sortBy === 'company') {
             return a.company.name.localeCompare(b.company.name);
         }
     });
@@ -45,7 +48,7 @@ const UserListPage = () => {
                 <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="select select-bordered w-96"
+                    className="select select-bordered w-96 ms-2"
                 >
                     <option value="name">Sort By Name</option>
                     <option value="email">Sort By Email</option>
